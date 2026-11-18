@@ -3,6 +3,23 @@
 Protótipo simulado desenvolvido em equipe na disciplina de Fundamentos de
 Sistemas Ciberfísicos, no curso de Ciência da Computação da PUCPR.
 
+## Circuito no Wokwi
+
+<p align="center">
+  <img src="./Imagem%20do%20ChatGPT%2018%20de%20nov.%20de%202026%2C%2018_59_57.png" alt="Circuito simulado com ESP32, MQ-2, DHT22, botão, buzzer e servomotor" width="640">
+</p>
+
+<details>
+<summary>Ver diagrama funcional do protótipo</summary>
+
+<p>
+  <img src="./Imagem%20do%20ChatGPT%2018%20de%20nov.%20de%202026%2C%2019_00_05.png" alt="Diagrama funcional das entradas, processamento e saídas do protótipo" width="820">
+</p>
+
+O diagrama registra uma versão anterior da lógica. No [código publicado](./main.py), com temperatura na faixa válida, o alerta crítico ocorre com média do gás ≥ 3895 ou com média ≥ 3830 e temperatura ≥ 34 °C. A válvula pode abrir automaticamente se o primeiro ciclo estiver normal. Após um alerta, a reabertura exige estado normal e o acionamento do botão.
+
+</details>
+
 ## Como funciona
 
 Um ESP32 programado em MicroPython calcula a média de cinco leituras do
