@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 14.3,
+      "left": -5,
+      "attrs": { "env": "micropython-20220618-v1.19.1" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -57.3,
+      "left": -101.4,
+      "attrs": { "temperature": "25.0" }
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": 127.5,
+      "left": -185,
+      "attrs": { "ppm": "1.0" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 194.4,
+      "left": 184.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 236.6,
+      "left": 9.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -40.4, "left": 182.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "btn1:2.r", "esp:GND.2", "green", [ "v19.4", "h-76.6", "v-105.6" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v57.6", "h48", "v48.1" ] ],
+    [ "dht1:SDA", "esp:D27", "green", [ "v28.8", "h0.1", "v96.3" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v57.6", "h-105.6", "v182.4", "h278.4", "v-124.8" ] ],
+    [ "btn1:1.r", "esp:D23", "green", [ "h48.2", "v-211.3" ] ],
+    [ "servo1:PWM", "esp:D18", "green", [ "h-9.6", "v67.4", "v105.6" ] ],
+    [ "bz1:2", "esp:D19", "green", [ "v9.6", "h38", "v-115.2", "h-153.6", "v-86.3" ] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "h-57.6", "v-124.8", "h-57.3" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-38.4", "v105.6", "v48.1" ] ],
+    [ "gas1:VCC", "esp:VIN", "red", [ "h0", "v56.7" ] ],
+    [ "servo1:V+", "esp:VIN", "red", [ "h-19.2", "v201.7", "h-172.8", "v-86.4" ] ],
+    [ "gas1:AOUT", "esp:D34", "green", [ "h9.6", "v-76.6" ] ],
+    [ "gas1:GND", "esp:GND.2", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
